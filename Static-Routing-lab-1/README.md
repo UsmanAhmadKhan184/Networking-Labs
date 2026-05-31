@@ -62,8 +62,8 @@ automatically and adapt when links fail.
 ### Router to VPC Links
 | Link | Network | Device A | Interface | IP Address | Device B | Interface | IP Address |
 |---|---|---|---|---|---|---|---|
-| R4 — VPC2 | 192.168.20.0/30 | R4 | e0/0 | 192.168.20.1 | VPC2 | eth0 | 192.168.20.2 |
-| R10 — VPC1 | 192.168.10.0/30 | R10 | e0/0 | 192.168.10.1 | VPC1 | eth0 | 192.168.10.2 |
+| R4 — VPC2 | 192.168.20.0/30 | R4 | e0/0 | 192.168.20.100 | VPC2 | eth0 | 192.168.20.2 |
+| R10 — VPC1 | 192.168.10.0/30 | R10 | e0/0 | 192.168.10.100 | VPC1 | eth0 | 192.168.10.2 |
 ### Loopback Interfaces
 | Router | Interface | IP Address | Network |
 |---|---|---|---|
