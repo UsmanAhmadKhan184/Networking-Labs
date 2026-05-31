@@ -81,6 +81,7 @@ automatically and adapt when links fail.
 ## Verification
 <img width="1650" height="351" alt="Trace route Vpc2 to Vpc1" src="https://github.com/user-attachments/assets/de8b4b09-1926-410f-b385-226d475a324a" />
 > Trace route Vpc2 to Vpc1
+
 <img width="643" height="190" alt="Trace route R1 to R10" src="https://github.com/user-attachments/assets/004094cc-dc8d-47af-a3f5-4c343fa0bd91" />
 > Trace route R1 to R10
 
