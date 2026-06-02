@@ -1,0 +1,16 @@
+!
+hostname PSH-R
+!         
+interface Loopback0
+ ip address 10.40.40.1 255.255.255.0
+!         
+interface Ethernet0/0
+ ip address 192.168.4.100 255.255.255.0
+!         
+interface Ethernet1/0
+ ip address 172.168.40.1 255.255.255.252
+!         
+ip route 0.0.0.0 0.0.0.0 172.168.40.2
+!         
+!         
+end

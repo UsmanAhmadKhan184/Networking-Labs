@@ -1,0 +1,14 @@
+!
+hostname ISL-R
+!        
+interface Loopback0
+ ip address 10.20.20.1 255.255.255.0
+!         
+interface Ethernet0/0
+ ip address 192.168.2.100 255.255.255.0
+!         
+interface Ethernet0/1
+ ip address 172.168.20.1 255.255.255.252
+ip route 0.0.0.0 0.0.0.0 172.168.20.2
+!                 
+end 
