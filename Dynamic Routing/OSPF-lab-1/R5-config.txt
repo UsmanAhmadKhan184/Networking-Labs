@@ -1,0 +1,24 @@
+!
+hostname R5    
+!         
+interface Loopback0
+ ip address 5.5.5.1 255.255.255.0
+!         
+interface Ethernet0/0
+ ip address 172.16.6.1 255.255.255.252
+!         
+interface Ethernet0/1
+ ip address 172.16.9.1 255.255.255.252
+!         
+interface Ethernet1/0
+ ip address 172.16.5.2 255.255.255.252 
+!         
+router ospf 10
+ router-id 5.5.5.5
+ network 5.5.5.0 0.0.0.0 area 0
+ network 172.16.5.0 0.0.0.3 area 0
+ network 172.16.6.0 0.0.0.3 area 0
+ network 172.16.9.0 0.0.0.3 area 0
+!         
+!         
+end 

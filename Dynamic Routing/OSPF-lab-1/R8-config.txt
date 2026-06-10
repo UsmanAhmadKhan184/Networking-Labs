@@ -1,0 +1,24 @@
+!
+hostname R8         
+!         
+interface Loopback0
+ ip address 8.8.8.1 255.255.255.0
+!         
+interface Ethernet0/0
+ ip address 172.16.8.2 255.255.255.252
+!         
+interface Ethernet0/1
+ ip address 172.16.7.2 255.255.255.252
+!         
+interface Ethernet1/0
+ ip address 172.16.10.1 255.255.255.252 
+!         
+router ospf 10
+ router-id 8.8.8.8
+ network 8.8.8.0 0.0.0.0 area 0
+ network 172.16.7.0 0.0.0.3 area 0
+ network 172.16.8.0 0.0.0.3 area 0
+ network 172.16.10.0 0.0.0.3 area 0
+!         
+!         
+end

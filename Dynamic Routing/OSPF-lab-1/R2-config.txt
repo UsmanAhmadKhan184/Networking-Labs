@@ -1,0 +1,19 @@
+!
+hostname R2      
+!         
+interface Loopback0
+ ip address 2.2.2.1 255.255.255.0
+!         
+interface Ethernet0/0
+ ip address 172.16.1.2 255.255.255.252
+!         
+interface Ethernet0/1
+ ip address 172.16.2.1 255.255.255.252
+!         
+router ospf 10
+ router-id 2.2.2.2
+ network 2.2.2.0 0.0.0.0 area 1
+ network 172.16.1.0 0.0.0.3 area 1
+ network 172.16.2.0 0.0.0.3 area 1
+!         
+end
