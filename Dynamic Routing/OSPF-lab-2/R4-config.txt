@@ -1,0 +1,26 @@
+!
+hostname R4-ABR       
+!         
+interface Loopback0
+ ip address 4.4.4.4 255.255.255.255
+!         
+interface Ethernet0/0
+ ip address 10.1.34.2 255.255.255.252
+!         
+interface Ethernet0/1
+ ip address 10.1.24.2 255.255.255.252
+!         
+interface Ethernet0/2
+ ip address 10.1.45.1 255.255.255.252
+!         
+router ospf 10
+ router-id 4.4.4.4
+ area 1 range 10.1.0.0 255.255.0.0
+ area 1 range 192.168.1.0 255.255.255.0
+ network 4.4.4.0 0.0.0.0 area 1
+ network 10.1.24.0 0.0.0.3 area 1
+ network 10.1.34.0 0.0.0.3 area 1
+ network 10.1.45.0 0.0.0.3 area 0
+!         
+!         
+end 

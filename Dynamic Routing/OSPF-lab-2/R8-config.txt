@@ -1,0 +1,24 @@
+!
+hostname R8-ABR
+!    
+interface Loopback0
+ ip address 8.8.8.8 255.255.255.255
+!         
+interface Ethernet0/0
+ ip address 10.0.78.2 255.255.255.252
+!         
+interface Ethernet0/1
+ ip address 10.0.68.2 255.255.255.252
+!         
+interface Ethernet0/2
+ ip address 10.0.81.1 255.255.255.252
+!         
+router ospf 10
+ router-id 8.8.8.8
+ network 8.8.8.0 0.0.0.0 area 0
+ network 10.0.68.0 0.0.0.3 area 0
+ network 10.0.78.0 0.0.0.3 area 0
+ network 10.0.81.0 0.0.0.3 area 0
+!              
+!         
+end

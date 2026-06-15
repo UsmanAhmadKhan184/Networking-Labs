@@ -1,0 +1,17 @@
+!
+hostname R10-BDR
+!        
+interface Loopback0
+ ip address 10.10.10.10 255.255.255.255
+!            
+interface Ethernet0/3
+ ip address 10.0.91.2 255.255.255.0
+ ip ospf priority 50
+!         
+router ospf 10
+ router-id 10.10.10.10
+ network 10.0.91.0 0.0.0.255 area 0
+ network 10.10.10.0 0.0.0.0 area 0
+!         
+!         
+end 

@@ -1,0 +1,25 @@
+!
+hostname R5-ABR       
+!         
+interface Loopback0
+ ip address 5.5.5.5 255.255.255.255
+!         
+interface Ethernet0/0
+ ip address 10.0.56.1 255.255.255.252
+ ip ospf cost 10
+!         
+interface Ethernet0/1
+ ip address 10.0.57.1 255.255.255.252
+!         
+interface Ethernet0/2
+ ip address 10.1.45.2 255.255.255.252
+!         
+router ospf 10
+ router-id 5.5.5.5
+ network 5.5.5.5 0.0.0.0 area 0
+ network 10.0.56.0 0.0.0.3 area 0
+ network 10.0.57.0 0.0.0.3 area 0
+ network 10.1.45.0 0.0.0.3 area 0
+!         
+!         
+end 

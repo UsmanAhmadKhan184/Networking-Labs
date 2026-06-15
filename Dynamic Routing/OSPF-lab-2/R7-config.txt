@@ -1,0 +1,25 @@
+!
+hostname R7       
+!         
+interface Loopback0
+ ip address 7.7.7.7 255.255.255.255
+!         
+interface Ethernet0/0
+ ip address 10.0.78.1 255.255.255.252
+ ip ospf cost 100
+!         
+interface Ethernet0/1
+ ip address 10.0.57.2 255.255.255.252
+!         
+interface Ethernet0/2
+ ip address 10.0.91.100 255.255.255.0
+!         
+router ospf 10
+ router-id 7.7.7.7
+ network 7.7.7.7 0.0.0.0 area 0
+ network 10.0.57.0 0.0.0.3 area 0
+ network 10.0.78.0 0.0.0.3 area 0
+ network 10.0.91.0 0.0.0.255 area 0
+!         
+!         
+end

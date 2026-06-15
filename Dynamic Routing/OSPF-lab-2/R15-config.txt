@@ -1,0 +1,20 @@
+!
+hostname R15
+!
+interface Loopback0
+ ip address 15.15.15.15 255.255.255.255
+!         
+interface Ethernet0/0
+ ip address 10.2.34.2 255.255.255.252
+!         
+interface Ethernet0/1
+ ip address 10.2.35.2 255.255.255.252 
+!         
+router ospf 10
+ router-id 15.15.15.15
+ network 10.2.34.0 0.0.0.3 area 2
+ network 10.2.35.0 0.0.0.3 area 2
+ network 15.15.15.0 0.0.0.0 area 2
+!         
+!         
+end 

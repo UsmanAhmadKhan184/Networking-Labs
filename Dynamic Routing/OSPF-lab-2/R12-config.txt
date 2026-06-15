@@ -1,0 +1,26 @@
+!
+hostname R12-ABR
+! 
+interface Loopback0
+ ip address 12.12.12.12 255.255.255.255
+!         
+interface Ethernet0/0
+ ip address 10.2.81.1 255.255.255.252
+!         
+interface Ethernet0/1
+ ip address 10.2.14.1 255.255.255.252
+!         
+interface Ethernet0/2
+ ip address 10.0.81.2 255.255.255.252
+!         
+router ospf 10
+ router-id 12.12.12.12
+ area 2 range 10.2.0.0 255.255.0.0
+ area 2 range 192.168.2.0 255.255.255.0
+ network 10.0.81.0 0.0.0.3 area 0
+ network 10.2.14.0 0.0.0.3 area 2
+ network 10.2.81.0 0.0.0.3 area 2
+ network 12.12.12.0 0.0.0.0 area 2
+!         
+!         
+end

@@ -1,0 +1,26 @@
+!
+hostname R14
+!
+!         
+interface Loopback0
+ ip address 14.14.14.14 255.255.255.255
+!         
+interface Ethernet0/0
+ ip address 10.2.34.1 255.255.255.252
+!         
+interface Ethernet0/1
+ ip address 10.2.14.2 255.255.255.252 
+!         
+interface Ethernet1/0
+ ip address 192.168.2.100 255.255.255.0
+!         
+router ospf 10
+ router-id 14.14.14.14
+ passive-interface Ethernet1/0
+ network 10.2.14.0 0.0.0.3 area 2
+ network 10.2.34.0 0.0.0.3 area 2
+ network 14.14.14.0 0.0.0.0 area 2
+ network 192.168.2.0 0.0.0.255 area 2
+!         
+!         
+end 

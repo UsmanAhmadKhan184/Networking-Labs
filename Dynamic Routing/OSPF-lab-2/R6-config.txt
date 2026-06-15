@@ -1,0 +1,20 @@
+!
+hostname R6     
+!         
+interface Loopback0
+ ip address 6.6.6.6 255.255.255.255
+!         
+interface Ethernet0/0
+ ip address 10.0.56.2 255.255.255.252
+!         
+interface Ethernet0/1
+ ip address 10.0.68.1 255.255.255.252
+!         
+router ospf 10
+ router-id 6.6.6.6
+ network 6.6.6.0 0.0.0.0 area 0
+ network 10.0.56.0 0.0.0.3 area 0
+ network 10.0.68.0 0.0.0.3 area 0
+!         
+!         
+end 

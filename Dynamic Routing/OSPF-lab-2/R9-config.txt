@@ -1,0 +1,18 @@
+!
+hostname R9-DR
+! 
+interface Loopback0
+ ip address 9.9.9.9 255.255.255.255 
+!         
+interface Ethernet0/1
+ ip address 10.0.91.1 255.255.255.0
+ ip ospf priority 100
+!         
+!         
+router ospf 10
+ router-id 9.9.9.9
+ network 9.9.9.0 0.0.0.0 area 0
+ network 10.0.91.0 0.0.0.255 area 0
+!         
+!         
+end 
