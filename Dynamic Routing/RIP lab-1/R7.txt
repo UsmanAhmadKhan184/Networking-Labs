@@ -1,0 +1,22 @@
+!
+hostname WH4
+!         
+interface Loopback0
+ ip address 7.7.7.7 255.255.255.255
+!         
+interface Ethernet0/0
+ ip address 10.10.4.100 255.255.255.0
+!         
+interface Ethernet0/2
+ ip address 192.168.22.2 255.255.255.252 
+!         
+router rip
+ version 2
+ passive-interface Ethernet0/0
+ network 7.0.0.0
+ network 10.0.0.0
+ network 192.168.22.0
+ no auto-summary
+!         
+!         
+end

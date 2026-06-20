@@ -1,0 +1,21 @@
+!
+hostname DC-Router
+!         
+interface Loopback0
+ ip address 1.1.1.1 255.255.255.255
+!         
+interface Ethernet0/0
+ ip address 192.168.20.1 255.255.255.252
+!         
+interface Ethernet0/3
+ ip address 192.168.10.1 255.255.255.252
+!         
+router rip
+ version 2
+ network 1.0.0.0
+ network 192.168.10.0
+ network 192.168.20.0
+ no auto-summary
+!         
+!         
+end
