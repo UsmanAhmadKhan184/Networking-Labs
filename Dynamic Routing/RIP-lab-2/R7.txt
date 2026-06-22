@@ -1,0 +1,34 @@
+!
+hostname WH4
+!
+key chain RIP-AUTH
+ key 1
+  key-string LOG@1234
+!                
+!         
+interface Loopback0
+ ip address 7.7.7.7 255.255.255.255
+ ip rip advertise 10
+!         
+interface Ethernet0/0
+ ip address 10.10.4.100 255.255.255.0
+ ip rip advertise 10 
+!         
+interface Ethernet0/2
+ ip address 192.168.22.2 255.255.255.252
+ ip rip advertise 10
+ ip rip authentication mode md5
+ ip rip authentication key-chain RIP-AUTH 
+!         
+router rip
+ version 2
+ timers basic 10 60 60 90
+ passive-interface default
+ no passive-interface Ethernet0/2
+ network 7.0.0.0
+ network 10.0.0.0
+ network 192.168.22.0
+ no auto-summary
+!         
+!         
+end 

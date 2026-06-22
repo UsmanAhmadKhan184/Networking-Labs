@@ -1,0 +1,54 @@
+!
+hostname Transit-A
+!
+key chain RIP-AUTH
+ key 1
+  key-string LOG@1234
+!           
+!         
+interface Loopback0
+ ip address 2.2.2.2 255.255.255.255
+ ip rip advertise 10
+!         
+interface Ethernet0/0
+ ip address 192.168.99.1 255.255.255.252
+ ip rip advertise 10
+ ip rip authentication mode md5
+ ip rip authentication key-chain RIP-AUTH
+!         
+interface Ethernet0/1
+ ip address 192.168.11.1 255.255.255.252
+ ip rip advertise 10
+ ip rip authentication mode md5
+ ip rip authentication key-chain RIP-AUTH
+!         
+interface Ethernet0/2
+ ip address 192.168.12.1 255.255.255.252
+ ip rip advertise 10
+ ip rip authentication mode md5
+ ip rip authentication key-chain RIP-AUTH
+!         
+interface Ethernet0/3
+ ip address 192.168.10.2 255.255.255.252
+ ip rip advertise 10
+ ip rip authentication mode md5
+ ip rip authentication key-chain RIP-AUTH
+!         
+router rip
+ version 2
+ timers basic 10 60 60 90
+ passive-interface default
+ no passive-interface Ethernet0/0
+ no passive-interface Ethernet0/1
+ no passive-interface Ethernet0/2
+ no passive-interface Ethernet0/3
+ offset-list 0 in 2 Ethernet0/0
+ network 2.0.0.0
+ network 192.168.10.0
+ network 192.168.11.0
+ network 192.168.12.0
+ network 192.168.99.0
+ no auto-summary
+!         
+!         
+end

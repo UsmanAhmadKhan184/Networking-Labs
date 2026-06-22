@@ -1,0 +1,43 @@
+!
+hostname DC-Router
+!
+key chain RIP-AUTH
+ key 1
+  key-string LOG@1234
+!              
+!         
+interface Loopback0
+ ip address 1.1.1.1 255.255.255.255
+ ip rip advertise 10
+!         
+interface Ethernet0/0
+ ip address 192.168.20.1 255.255.255.252
+ ip rip advertise 10
+ ip rip authentication mode md5
+ ip rip authentication key-chain RIP-AUTH
+!         
+interface Ethernet0/1
+ ip address 203.0.113.1 255.255.255.252
+!         
+interface Ethernet0/3
+ ip address 192.168.10.1 255.255.255.252
+ ip rip advertise 10
+ ip rip authentication mode md5
+ ip rip authentication key-chain RIP-AUTH
+!         
+router rip
+ version 2
+ timers basic 10 60 60 90
+ passive-interface default
+ no passive-interface Ethernet0/0
+ no passive-interface Ethernet0/3
+ network 1.0.0.0
+ network 192.168.10.0
+ network 192.168.20.0
+ default-information originate
+ no auto-summary
+!         
+ip route 0.0.0.0 0.0.0.0 203.0.113.2
+!         
+!         
+end
