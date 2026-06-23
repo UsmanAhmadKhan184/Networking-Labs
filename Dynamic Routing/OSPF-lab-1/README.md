@@ -90,13 +90,15 @@ check and which bits to ignore. 0 means check this bit,
 1 means ignore this bit — the opposite logic of a subnet mask.
 
 **Calculation using the bit-flip method:**
-**Example: /20 subnet**
-Step 1 — Write /20 in binary (20 ones, 12 zeros):
-11111111.11111111.11110000.00000000 = 255.255.240.0
-Step 2 — Flip every bit (0 becomes 1, 1 becomes 0):
-00000000.00000000.00001111.11111111
-Step 3 — Convert to decimal:
-0.0.15.255
+
+**Example: /20 subnet** 
+
+Step 1 — Write /20 in binary (20 ones, 12 zeros): \
+11111111.11111111.11110000.00000000 = 255.255.240.0 \
+Step 2 — Flip every bit (0 becomes 1, 1 becomes 0): \
+00000000.00000000.00001111.11111111 \
+Step 3 — Convert to decimal: \
+0.0.15.255 \
 Wildcard for /20 = 0.0.15.255
 
 This method works correctly for every subnet — classful or
