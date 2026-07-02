@@ -1,0 +1,35 @@
+!
+hostname R7-L1-L2
+!
+clns routing
+!            
+interface Loopback0
+ ip address 7.7.7.7 255.255.255.255
+ ip router isis 
+!         
+interface Ethernet0/1
+ ip address 10.3.79.2 255.255.255.252
+ ip router isis 
+ isis metric 10
+!         
+interface Ethernet0/2
+ ip address 10.3.78.2 255.255.255.252
+ ip router isis 
+ isis metric 10
+!         
+interface Ethernet0/3
+ ip address 10.0.73.1 255.255.255.252
+ ip router isis 
+ isis metric 10 
+!         
+router isis
+ net 49.0003.0070.0700.7007.00
+ metric-style wide
+ passive-interface default
+ no passive-interface Ethernet0/1
+ no passive-interface Ethernet0/2
+ no passive-interface Ethernet0/3
+ no passive-interface Loopback0
+!         
+!         
+end   
