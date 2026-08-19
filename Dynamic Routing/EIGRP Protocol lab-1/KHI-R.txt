@@ -1,0 +1,31 @@
+!
+hostname KHI-R
+!     
+!         
+interface Loopback0
+ ip address 5.5.5.5 255.255.255.0
+!         
+interface Ethernet0/0
+ ip address 192.168.2.100 255.255.255.0
+!         
+interface Ethernet0/3
+ ip address 10.0.25.2 255.255.255.252
+ delay 10 
+!         
+interface Ethernet1/0
+ ip address 10.0.35.2 255.255.255.252
+ delay 10 
+!         
+!         
+router eigrp 100
+ variance 30
+ network 5.5.5.5 0.0.0.0
+ network 10.0.25.0 0.0.0.3
+ network 10.0.35.0 0.0.0.3
+ network 192.168.2.0
+ passive-interface default
+ no passive-interface Ethernet0/3
+ no passive-interface Ethernet1/0
+!         
+!         
+end

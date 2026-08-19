@@ -1,0 +1,38 @@
+!
+hostname DC-A      
+!         
+interface Loopback0
+ ip address 2.2.2.2 255.255.255.0
+!         
+interface Ethernet0/0
+ ip address 10.0.23.1 255.255.255.252
+ delay 500
+!         
+interface Ethernet0/1
+ ip address 10.0.12.2 255.255.255.252
+ delay 10 
+!         
+interface Ethernet0/2
+ ip address 10.0.24.1 255.255.255.252
+ delay 10 
+!         
+interface Ethernet0/3
+ ip address 10.0.25.1 255.255.255.252
+ delay 10  
+!         
+!         
+router eigrp 100
+ variance 30
+ network 2.2.2.2 0.0.0.0
+ network 10.0.12.0 0.0.0.3
+ network 10.0.23.0 0.0.0.3
+ network 10.0.24.0 0.0.0.3
+ network 10.0.25.0 0.0.0.3
+ passive-interface default
+ no passive-interface Ethernet0/1
+ no passive-interface Ethernet0/0
+ no passive-interface Ethernet0/3
+ no passive-interface Ethernet0/2
+!         
+!         
+end 

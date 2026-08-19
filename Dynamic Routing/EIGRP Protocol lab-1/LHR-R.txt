@@ -1,0 +1,27 @@
+!
+hostname LHR-R
+!         
+interface Loopback0
+ ip address 4.4.4.4 255.255.255.0
+!         
+interface Ethernet0/0
+ ip address 192.168.1.100 255.255.255.0
+!         
+interface Ethernet0/1
+ no ip address
+ shutdown 
+!         
+interface Ethernet0/2
+ ip address 10.0.24.2 255.255.255.252
+ delay 10 
+!         
+router eigrp 100
+ variance 30
+ network 4.4.4.4 0.0.0.0
+ network 10.0.24.0 0.0.0.3
+ network 192.168.1.0
+ passive-interface default
+ no passive-interface Ethernet0/2
+!         
+!         
+end
